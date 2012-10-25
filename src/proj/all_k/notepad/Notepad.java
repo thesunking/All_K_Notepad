@@ -93,16 +93,9 @@ public class Notepad extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         
-        TextView tv = (TextView) v.findViewById(R.id.text2);
-        
-        if (tv.getMaxLines() == 1) {
-        	tv.setVisibility(View.VISIBLE);
-        	tv.setMaxLines(100);
-        } else {
-        	Intent i = new Intent(this, NoteEdit.class);
-        	i.putExtra(NotesDbAdapter.KEY_ROWID, id);
-        	startActivityForResult(i, ACTIVITY_EDIT);
-        }
+        Intent i = new Intent(this, NoteEdit.class);
+        i.putExtra(NotesDbAdapter.KEY_ROWID, id);
+        startActivityForResult(i, ACTIVITY_EDIT);
     }
 
     @Override
